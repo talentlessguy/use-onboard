@@ -1,6 +1,6 @@
 {
   "name": "use-onboard",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "exports": {
@@ -38,8 +38,15 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "bnc-onboard": "^1.30.0",
-    "ethers": "^5.4.1",
-    "react": "^17.0.2"
+    "bnc-onboard": ">=1.30",
+    "ethers": ">=5.4",
+    "react": ">=17"
+  },
+  "files": [
+    "dist"
+  ],
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/talentlessguy/use-onboard?sponsor=1"
   }
 }
