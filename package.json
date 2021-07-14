@@ -1,0 +1,45 @@
+{
+  "name": "use-onboard",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talentlessguy/use-onboard.git"
+  },
+  "keywords": [
+    "ethereum",
+    "blockchain",
+    "react",
+    "hooks",
+    "react-hook",
+    "metamask"
+  ],
+  "author": "v1rtl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/talentlessguy/use-onboard/issues"
+  },
+  "homepage": "https://github.com/talentlessguy/use-onboard#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "bnc-onboard": "^1.30.0",
+    "ethers": "^5.4.1",
+    "react": "^17.0.2",
+    "rollup": "^2.53.1",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "bnc-onboard": "^1.30.0",
+    "ethers": "^5.4.1",
+    "react": "^17.0.2"
+  }
+}
