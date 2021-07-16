@@ -6,8 +6,14 @@ import { ethers } from 'ethers'
 
 let provider: ethers.providers.Provider
 
-export const useWallet = (
-  { options, initialData }: { options: Initialization; initialData?: Partial<{ address: string; balance: number }> } = {
+export const useOnboard = (
+  {
+    options,
+    initialData
+  }: {
+    options?: Initialization & { networkId?: number }
+    initialData?: Partial<{ address: string; balance: number }>
+  } = {
     options: { networkId: 1 },
     initialData: {}
   }

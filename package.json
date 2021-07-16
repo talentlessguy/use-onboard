@@ -1,6 +1,6 @@
 {
   "name": "use-onboard",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "type": "module",
   "exports": {
@@ -9,7 +9,11 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "node --loader esbuild-node-loader --experimental-specifier-resolution=node node_modules/uvu/bin.js",
+    "test:coverage": "c8 --include=src pnpm test",
+    "test:report": "c8 report --reporter=text-lcov > coverage.lcov",
+    "prepare": "pnpm build && pnpm test"
   },
   "repository": {
     "type": "git",
@@ -30,11 +34,14 @@
   },
   "homepage": "https://github.com/talentlessguy/use-onboard#readme",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.2.1",
+    "@rollup/plugin-typescript": "^8.2.3",
+    "@testing-library/react-hooks": "^7.0.1",
     "bnc-onboard": "^1.30.0",
+    "esbuild-node-loader": "^0.1.1",
     "ethers": "^5.4.1",
     "react": "^17.0.2",
-    "rollup": "^2.53.1",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.53.2",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

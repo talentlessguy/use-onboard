@@ -1,6 +1,16 @@
-# use-onboard
+<div align="center">
+
+# _`useOnboard()`_
+
+<br />
+<img src="https://github.com/talentlessguy/use-onboard/blob/master/logo.svg" height="200px" />
+
+[![NPM][npm-badge]][npm-url] [![NPM][dl-badge]][npm-url]
 
 A React Web3 wallet hook for [Onboard.js](https://blocknative.com/onboard) library.
+
+<br />
+</div>
 
 ## Features
 
@@ -18,11 +28,11 @@ pnpm i use-onboard
 
 ```jsx
 import React from 'react'
-import { useWallet } from 'use-onboard'
+import { useOnboard } from 'use-onboard'
 
 const App = ({ initialData }) => {
   // in case you are authorized before this won't ask to login from the wallet
-  const { selectWallet, address, isWalletSelected, disconnectWallet, balance } = useWallet({
+  const { selectWallet, address, isWalletSelected, disconnectWallet, balance } = useOnboard({
     options: {
       dappId: process.env.DAPP_ID, // The API key created by step one above
       networkId: 1, // The Ethereum network ID your Dapp uses.
@@ -38,11 +48,8 @@ const App = ({ initialData }) => {
       {
         <button
           onClick={async () => {
-            if (isWalletSelected) {
-              disconnectWallet()
-            } else {
-              await selectWallet()
-            }
+            if (isWalletSelected) disconnectWallet()
+            else await selectWallet()
           }}
         >
           {isWalletSelected ? 'Disconnect' : 'Connect'}
@@ -54,3 +61,7 @@ const App = ({ initialData }) => {
   )
 }
 ```
+
+[npm-badge]: https://img.shields.io/npm/v/use-onboard?style=for-the-badge&color=4E8EE9&label=&logo=npm
+[npm-url]: https://npmjs.com/package/use-onboard/swagger
+[dl-badge]: https://img.shields.io/npm/dt/use-onboard?style=for-the-badge&color=4E8EE9
