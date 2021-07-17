@@ -15,6 +15,7 @@ specifiers:
   eslint-plugin-react: ^7.24.0
   eslint-plugin-react-hooks: ^4.2.0
   ethers: ^5.4.1
+  husky: ^7.0.1
   prettier: ^2.3.2
   react: ^17.0.2
   react-dom: ^17.0.2
@@ -37,6 +38,7 @@ devDependencies:
   eslint-plugin-react: 7.24.0_eslint@7.31.0
   eslint-plugin-react-hooks: 4.2.0_eslint@7.31.0
   ethers: 5.4.1
+  husky: 7.0.1
   prettier: 2.3.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -3821,6 +3823,12 @@ packages:
       assert-plus: 1.0.0
       jsprim: 1.4.1
       sshpk: 1.16.1
+    dev: true
+
+  /husky/7.0.1:
+    resolution: {integrity: sha512-gceRaITVZ+cJH9sNHqx5tFwbzlLCVxtVZcusME8JYQ8Edy5mpGDOqD8QBCdMhpyo9a+JXddnujQ4rpY2Ff9SJA==}
+    engines: {node: '>=12'}
+    hasBin: true
     dev: true
 
   /iconv-lite/0.6.3:

@@ -34,6 +34,8 @@
   },
   "homepage": "https://github.com/talentlessguy/use-onboard#readme",
   "devDependencies": {
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
     "@rollup/plugin-typescript": "^8.2.3",
     "@testing-library/react-hooks": "^7.0.1",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
@@ -46,14 +48,13 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "ethers": "^5.4.1",
+    "husky": "^7.0.1",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.53.2",
     "tslib": "^2.3.0",
-    "typescript": "^4.3.5",
-    "@commitlint/cli": "12.1.4",
-    "@commitlint/config-conventional": "12.1.4"
+    "typescript": "^4.3.5"
   },
   "peerDependencies": {
     "bnc-onboard": ">=1.30",

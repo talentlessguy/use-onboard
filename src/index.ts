@@ -30,7 +30,7 @@ export const useOnboard = (
         ...options,
         subscriptions: {
           ...options.subscriptions,
-          wallet: (wallet) => {
+          wallet: wallet => {
             options.subscriptions?.wallet?.(wallet)
 
             if (wallet.provider) {
@@ -47,11 +47,11 @@ export const useOnboard = (
               window.localStorage.removeItem('selectedWallet')
             }
           },
-          address: (address) => {
+          address: address => {
             options.subscriptions?.address?.(address)
             if (address) setAdress(address)
           },
-          balance: (balance) => {
+          balance: balance => {
             options.subscriptions?.balance(balance)
             setBalance(parseInt(balance) / 10 ** 18)
           }
