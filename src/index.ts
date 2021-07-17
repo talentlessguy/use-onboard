@@ -58,7 +58,7 @@ export const useOnboard = (
         }
       })
     )
-  }, [])
+  }, [options])
 
   useEffect(() => {
     const previouslySelectedWallet = window.localStorage.getItem('selectedWallet')

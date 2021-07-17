@@ -1,6 +1,6 @@
 {
   "name": "use-onboard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A React Web3 wallet hook for Onboard.js library.",
   "type": "module",
   "exports": {
@@ -10,7 +10,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "prepare": "pnpm build"
+    "format": "prettier --check \"./**/*.ts\"",
+    "format:fix": "prettier --write \"./**/*.ts\"",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -33,13 +36,24 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.3",
     "@testing-library/react-hooks": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
     "bnc-onboard": "^1.30.0",
     "esbuild-node-loader": "^0.1.1",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "ethers": "^5.4.1",
+    "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.53.2",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5",
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4"
   },
   "peerDependencies": {
     "bnc-onboard": ">=1.30",
