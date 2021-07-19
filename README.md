@@ -3,7 +3,7 @@
 # _`useOnboard()`_
 
 <br />
-<img src="https://github.com/talentlessguy/use-onboard/blob/master/logo.svg" height="200px" />
+<img src="https://raw.githubusercontent.com/talentlessguy/use-onboard/master/logo.svg" height="200px" />
 
 [![NPM][npm-badge]][npm-url] [![NPM][dl-badge]][npm-url]
 
