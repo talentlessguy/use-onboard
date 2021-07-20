@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import Onboard from 'bnc-onboard'
 import { API, Initialization, Wallet } from 'bnc-onboard/dist/src/interfaces'
-
 import { ethers } from 'ethers'
 
 let provider: ethers.providers.Provider
 
+/**
+ * A React Web3 wallet hook for [Onboard.js](https://blocknative.com/onboard) library.
+ */
 export const useOnboard = (
   {
     options,

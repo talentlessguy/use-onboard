@@ -35,10 +35,7 @@ const App = ({ initialData }) => {
   const { selectWallet, address, isWalletSelected, disconnectWallet, balance } = useOnboard({
     options: {
       dappId: process.env.DAPP_ID, // The API key created by step one above
-      networkId: 1, // The Ethereum network ID your Dapp uses.
-      walletSelect: {
-        wallets: WALLETS
-      }
+      networkId: 1 // The Ethereum network ID your Dapp uses.
     },
     initialData // optional initial to data to pass while wallet is loading
   })
@@ -50,8 +47,7 @@ const App = ({ initialData }) => {
           onClick={async () => {
             if (isWalletSelected) disconnectWallet()
             else await selectWallet()
-          }}
-        >
+          }}>
           {isWalletSelected ? 'Disconnect' : 'Connect'}
         </button>
       }
