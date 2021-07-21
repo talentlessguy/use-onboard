@@ -26,6 +26,8 @@ pnpm i use-onboard
 
 ## Example
 
+[![CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/useonboard-demo-tsskr)
+
 ```jsx
 import React from 'react'
 import { useOnboard } from 'use-onboard'
@@ -34,7 +36,7 @@ const App = ({ initialData }) => {
   // in case you are authorized before this won't ask to login from the wallet
   const { selectWallet, address, isWalletSelected, disconnectWallet, balance } = useOnboard({
     options: {
-      dappId: process.env.DAPP_ID, // The API key created by step one above
+      dappId: process.env.DAPP_ID, // Optional API key created by step one above
       networkId: 1 // The Ethereum network ID your Dapp uses.
     },
     initialData // optional initial to data to pass while wallet is loading
