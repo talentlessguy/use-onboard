@@ -73,8 +73,5 @@
     "type": "individual",
     "url": "https://github.com/talentlessguy/use-onboard?sponsor=1"
   },
-  "sideEffects": false,
-  "dependencies": {
-    "next": "^11.0.2-canary.18"
-  }
+  "sideEffects": false
 }
