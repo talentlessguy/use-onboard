@@ -22,20 +22,21 @@ export const useOnboard = (
 ) => {
   const [onboard, setOnboard] = useState<API>()
   const [wallet, setWallet] = useState<Wallet>()
-  const [address, setAdress] = useState<string>(initialData?.address)
-  const [balance, setBalance] = useState<number>(initialData?.balance)
+  const [address, setAdress] = useState<string | undefined>(initialData?.address)
+  const [balance, setBalance] = useState<number | undefined>(initialData?.balance)
   const [isWalletSelected, setWalletSelected] = useState<boolean>()
 
   useEffect(() => {
     setOnboard(
       Onboard({
         ...options,
+        networkId: options?.networkId || 1,
         subscriptions: {
-          ...options.subscriptions,
+          ...options?.subscriptions,
           wallet: wallet => {
-            options.subscriptions?.wallet?.(wallet)
+            options?.subscriptions?.wallet?.(wallet)
 
-            if (wallet.provider) {
+            if (wallet.provider && wallet.name) {
               setWallet(wallet)
 
               const ethersProvider = new ethers.providers.Web3Provider(wallet.provider)
@@ -45,22 +46,22 @@ export const useOnboard = (
               provider = ethersProvider
             } else {
               provider = null
-              setWallet(null)
+              setWallet(undefined)
               window.localStorage.removeItem('selectedWallet')
             }
           },
           address: address => {
-            options.subscriptions?.address?.(address)
+            options?.subscriptions?.address?.(address)
             if (address) setAdress(address)
           },
           balance: balance => {
-            options.subscriptions?.balance(balance)
+            options?.subscriptions?.balance?.(balance)
             setBalance(parseInt(balance) / 10 ** 18)
           }
         }
       })
     )
-  }, [options])
+  }, [])
 
   useEffect(() => {
     const previouslySelectedWallet = window.localStorage.getItem('selectedWallet')
@@ -72,23 +73,27 @@ export const useOnboard = (
   }, [onboard])
 
   const selectWallet = async () => {
-    await onboard.walletSelect()
+    if (onboard) {
+      await onboard.walletSelect()
 
-    await onboard.walletCheck()
+      await onboard.walletCheck()
 
-    setWalletSelected(true)
+      setWalletSelected(true)
 
-    onboard.config({ darkMode: true, networkId: 1 })
+      onboard.config({ darkMode: true, networkId: 1 })
+    }
   }
 
   const disconnectWallet = () => {
-    onboard.walletReset()
+    if (onboard) {
+      onboard.walletReset()
 
-    setWalletSelected(false)
-    setBalance(undefined)
-    setAdress(undefined)
+      setWalletSelected(false)
+      setBalance(undefined)
+      setAdress(undefined)
 
-    window.localStorage.removeItem('selectedWallet')
+      window.localStorage.removeItem('selectedWallet')
+    }
   }
 
   return { onboard, wallet, address, selectWallet, balance, isWalletSelected, provider, disconnectWallet }

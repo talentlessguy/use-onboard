@@ -1,6 +1,6 @@
 {
   "name": "use-onboard",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "A React Web3 wallet hook for Onboard.js library.",
   "type": "module",
   "exports": {
@@ -73,5 +73,8 @@
     "type": "individual",
     "url": "https://github.com/talentlessguy/use-onboard?sponsor=1"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "next": "^11.0.2-canary.18"
+  }
 }
