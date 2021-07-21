@@ -36,8 +36,8 @@ const App = ({ initialData }) => {
   // in case you are authorized before this won't ask to login from the wallet
   const { selectWallet, address, isWalletSelected, disconnectWallet, balance } = useOnboard({
     options: {
-      dappId: process.env.DAPP_ID, // Optional API key created by step one above
-      networkId: 1 // The Ethereum network ID your Dapp uses.
+      dappId: process.env.DAPP_ID, // optional API key
+      networkId: 1 // Ethereum network ID
     },
     initialData // optional initial to data to pass while wallet is loading
   })
