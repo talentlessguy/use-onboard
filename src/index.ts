@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import Onboard from 'bnc-onboard'
 import { API, Initialization, Wallet } from 'bnc-onboard/dist/src/interfaces'
-import { ethers } from 'ethers'
-
-let provider: ethers.providers.Provider
+import { ethers, providers } from 'ethers'
 
 /**
  * A React Web3 wallet hook for [Onboard.js](https://blocknative.com/onboard) library.
@@ -22,9 +20,10 @@ export const useOnboard = (
 ) => {
   const [onboard, setOnboard] = useState<API>()
   const [wallet, setWallet] = useState<Wallet>()
-  const [address, setAdress] = useState<string | undefined>(initialData?.address)
-  const [balance, setBalance] = useState<number | undefined>(initialData?.balance)
+  const [address, setAdress] = useState<string>(initialData?.address || '')
+  const [balance, setBalance] = useState<number>(initialData?.balance || 0)
   const [isWalletSelected, setWalletSelected] = useState<boolean>()
+  const [provider, setProvider] = useState<providers.Web3Provider>()
 
   useEffect(() => {
     setOnboard(
@@ -43,10 +42,10 @@ export const useOnboard = (
 
               window.localStorage.setItem('selectedWallet', wallet.name)
 
-              provider = ethersProvider
+              setProvider(ethersProvider)
             } else {
-              provider = null
-              setWallet(undefined)
+              setProvider(null)
+              setWallet(null)
               window.localStorage.removeItem('selectedWallet')
             }
           },
@@ -56,7 +55,7 @@ export const useOnboard = (
           },
           balance: balance => {
             options?.subscriptions?.balance?.(balance)
-            setBalance(parseInt(balance) / 10 ** 18)
+            setBalance(parseInt(ethers.utils.formatEther(balance)))
           }
         }
       })
@@ -73,7 +72,7 @@ export const useOnboard = (
   }, [onboard])
 
   const selectWallet = async () => {
-    if (onboard) {
+    if (!isWalletSelected && onboard) {
       await onboard.walletSelect()
 
       await onboard.walletCheck()
@@ -89,8 +88,8 @@ export const useOnboard = (
       onboard.walletReset()
 
       setWalletSelected(false)
-      setBalance(undefined)
-      setAdress(undefined)
+      setBalance(null)
+      setAdress(null)
 
       window.localStorage.removeItem('selectedWallet')
     }

@@ -5,7 +5,7 @@
 <br />
 <img src="https://raw.githubusercontent.com/talentlessguy/use-onboard/master/logo.svg" height="200px" />
 
-[![NPM][npm-badge]][npm-url] [![NPM][dl-badge]][npm-url] [![radicle][Radicle]][radicle-link]
+[![NPM][npm-badge]][npm-url] [![NPM][dl-badge]][npm-url] [![radicle][radicle]][radicle-link]
 
 A React Web3 wallet hook for [Onboard.js](https://blocknative.com/onboard) library.
 
@@ -36,7 +36,6 @@ const App = ({ initialData }) => {
   // in case you are authorized before this won't ask to login from the wallet
   const { selectWallet, address, isWalletSelected, disconnectWallet, balance } = useOnboard({
     options: {
-      dappId: process.env.DAPP_ID, // optional API key
       networkId: 1 // Ethereum network ID
     },
     initialData // optional initial to data to pass while wallet is loading
@@ -44,15 +43,14 @@ const App = ({ initialData }) => {
 
   return (
     <div>
-      {
-        <button
-          onClick={async () => {
-            if (isWalletSelected) disconnectWallet()
-            else await selectWallet()
-          }}>
-          {isWalletSelected ? 'Disconnect' : 'Connect'}
-        </button>
-      }
+      <button
+        onClick={async () => {
+          if (isWalletSelected) disconnectWallet()
+          else await selectWallet()
+        }}>
+        {isWalletSelected ? 'Disconnect' : 'Connect'}
+      </button>
+
       <p>Address: {address}</p>
       <p>Balance: {balance} ETH</p>
     </div>
