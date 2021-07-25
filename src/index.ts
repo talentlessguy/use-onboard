@@ -12,7 +12,7 @@ export const useOnboard = (
     initialData
   }: {
     options?: Initialization & { networkId?: number }
-    initialData?: Partial<{ address: string; balance: number }>
+    initialData?: Partial<{ address: string; balance: string }>
   } = {
     options: { networkId: 1 },
     initialData: {}
@@ -21,7 +21,7 @@ export const useOnboard = (
   const [onboard, setOnboard] = useState<API>()
   const [wallet, setWallet] = useState<Wallet>()
   const [address, setAdress] = useState<string>(initialData?.address || '')
-  const [balance, setBalance] = useState<number>(initialData?.balance || 0)
+  const [balance, setBalance] = useState<string>(initialData?.balance || '0')
   const [isWalletSelected, setWalletSelected] = useState<boolean>()
   const [provider, setProvider] = useState<providers.Web3Provider>()
 
@@ -55,11 +55,12 @@ export const useOnboard = (
           },
           balance: balance => {
             options?.subscriptions?.balance?.(balance)
-            if (isWalletSelected) setBalance(parseInt(ethers.utils.formatEther(balance)))
+            if (isWalletSelected) setBalance(balance)
           }
         }
       })
     )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
