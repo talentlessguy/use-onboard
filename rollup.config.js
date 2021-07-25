@@ -1,4 +1,6 @@
 import ts from '@rollup/plugin-typescript'
+import { terser } from 'rollup-plugin-terser'
+import filesize from 'rollup-plugin-filesize'
 import { peerDependencies } from './package.json'
 
 export default [
@@ -14,7 +16,7 @@ export default [
         format: 'cjs'
       }
     ],
-    plugins: [ts({ include: ['./src/**/*.ts'] })],
+    plugins: [ts({ include: ['./src/**/*.ts'] }), terser({ mangle: false }), filesize()],
     external: Object.keys(peerDependencies)
   }
 ]
