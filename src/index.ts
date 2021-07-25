@@ -55,7 +55,7 @@ export const useOnboard = (
           },
           balance: balance => {
             options?.subscriptions?.balance?.(balance)
-            setBalance(parseInt(ethers.utils.formatEther(balance)))
+            if (isWalletSelected) setBalance(parseInt(ethers.utils.formatEther(balance)))
           }
         }
       })
