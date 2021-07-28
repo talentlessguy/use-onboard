@@ -5,7 +5,7 @@
 <br />
 <img src="https://raw.githubusercontent.com/talentlessguy/use-onboard/master/logo.svg" height="200px" /><br /><br />
 
-[![NPM][npm-badge]][npm-url] [![NPM][dl-badge]][npm-url] [![Bundle size][size-badge]][bundlephobia] [![radicle][radicle]][radicle-link]
+[![NPM][npm-badge]][npm-url] [![NPM][dl-badge]][npm-url] [![Bundle size][size-badge]][bundlephobia]
 
 A React Web3 wallet hook for [Onboard.js](https://blocknative.com/onboard) library.
 
@@ -63,7 +63,5 @@ const App = ({ initialData }) => {
 [npm-badge]: https://img.shields.io/npm/v/use-onboard?style=for-the-badge&color=4E8EE9&label=&logo=npm
 [npm-url]: https://npmjs.com/package/use-onboard/swagger
 [dl-badge]: https://img.shields.io/npm/dt/use-onboard?style=for-the-badge&color=4E8EE9
-[radicle-link]: radicle://link/v0/rad:git:hnrkk4d16rqusj9o5qfm1mdjxj4uy5o1e7q5y
-[radicle]: https://img.shields.io/badge/🌱%20hosted%20on-radicle-4E8EE9?style=for-the-badge
 [size-badge]: https://img.shields.io/bundlephobia/minzip/use-onboard?style=for-the-badge&color=4E8EE9&label=minzip
 [bundlephobia]: https://bundlephobia.com/package/use-onboard
