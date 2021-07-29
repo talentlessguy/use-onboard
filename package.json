@@ -1,6 +1,6 @@
 {
   "name": "use-onboard",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A React Web3 wallet hook for Onboard.js library.",
   "type": "module",
   "exports": {
@@ -64,7 +64,6 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "bnc-onboard": ">=1.30",
     "ethers": ">=5.4",
     "react": ">=17"
   },

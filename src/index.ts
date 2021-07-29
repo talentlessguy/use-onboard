@@ -67,8 +67,11 @@ export const useOnboard = (
     const previouslySelectedWallet = window.localStorage.getItem('selectedWallet')
 
     if (previouslySelectedWallet && onboard) {
-      setWalletSelected(true)
-      onboard.walletSelect(previouslySelectedWallet)
+      onboard.walletSelect(previouslySelectedWallet).then(() => {
+        setWalletSelected(true)
+      })
+    } else {
+      setWalletSelected(false)
     }
   }, [onboard])
 
