@@ -70,8 +70,6 @@ export const useOnboard = (
       onboard.walletSelect(previouslySelectedWallet).then(() => {
         setWalletSelected(true)
       })
-    } else {
-      setWalletSelected(false)
     }
   }, [onboard])
 
