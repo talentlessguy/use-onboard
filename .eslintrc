@@ -1,7 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": ["plugin:@typescript-eslint/recommended", "eslint:recommended", "plugin:react-hooks/recommended"],
-  "plugins": ["prettier", "react", "react", "prettier", "react-hooks"],
+  "plugins": ["prettier", "react", "react", "prettier", "react-hooks","testing-library"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -26,5 +26,9 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/ban-ts-comment": "warn"
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debug": "warn",
+    "testing-library/no-dom-import": "off"
   }
 }
