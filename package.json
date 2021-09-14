@@ -1,6 +1,6 @@
 {
   "name": "use-onboard",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A React Web3 wallet hook for Onboard.js library.",
   "type": "module",
   "exports": {
@@ -43,8 +43,8 @@
     "@commitlint/config-conventional": "13.1.0",
     "@rollup/plugin-typescript": "^8.2.5",
     "@testing-library/react-hooks": "^7.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "bnc-onboard": "^1.34.1",
     "esbuild-node-loader": "^0.3.1",
     "eslint": "^7.32.0",
@@ -52,7 +52,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "ethers": "^5.4.6",
     "husky": "^7.0.2",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
@@ -61,12 +60,13 @@
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.1",
-    "typescript": "4.3"
+    "typescript": "4.3",
+    "@ethersproject/providers": ">=5.4"
   },
   "peerDependencies": {
     "bnc-onboard": ">=1",
-    "ethers": ">=5.4",
-    "react": ">=17"
+    "react": ">=17",
+    "@ethersproject/providers": ">=5.4"
   },
   "files": [
     "dist"

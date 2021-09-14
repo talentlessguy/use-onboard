@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Onboard from 'bnc-onboard'
 import { API, Initialization, Wallet } from 'bnc-onboard/dist/src/interfaces'
-import { ethers, providers } from 'ethers'
+import { Web3Provider } from '@ethersproject/providers'
 
 /**
  * A React Web3 wallet hook for [Onboard.js](https://blocknative.com/onboard) library.
@@ -23,7 +23,7 @@ export const useOnboard = (
   const [address, setAdress] = useState<string>(initialData?.address || '')
   const [balance, setBalance] = useState<string>(initialData?.balance || '0')
   const [isWalletSelected, setWalletSelected] = useState<boolean>()
-  const [provider, setProvider] = useState<providers.Web3Provider>()
+  const [provider, setProvider] = useState<Web3Provider>()
 
   useEffect(() => {
     setOnboard(
@@ -38,7 +38,7 @@ export const useOnboard = (
             if (wallet.provider && wallet.name) {
               setWallet(wallet)
 
-              const ethersProvider = new ethers.providers.Web3Provider(wallet.provider)
+              const ethersProvider = new Web3Provider(wallet.provider)
 
               window.localStorage.setItem('selectedWallet', wallet.name)
 
